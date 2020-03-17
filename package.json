@@ -1,0 +1,19 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "Building a Content Management Systems for managing a company's employees using node, inquirer, and MySQL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NVK2016/Employee-Tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NVK2016/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/NVK2016/Employee-Tracker#readme"
+}
