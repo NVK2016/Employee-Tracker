@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/NVK2016/Employee-Tracker/issues"
   },
-  "homepage": "https://github.com/NVK2016/Employee-Tracker#readme"
+  "homepage": "https://github.com/NVK2016/Employee-Tracker#readme",
+  "dependencies": {
+    "asciiart-logo": "^0.2.6",
+    "inquirer": "^7.1.0",
+    "mysql": "^2.18.1"
+  }
 }
