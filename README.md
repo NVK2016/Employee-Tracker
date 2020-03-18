@@ -13,7 +13,7 @@ So that I can organize and plan my business
 
 ## Build a command-line application that at a minimum allows the user to:
 
-Add departments, roles, employees
+<b>Add</b> departments, roles, employees
 
 View departments, roles, employees
 
