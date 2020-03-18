@@ -27,6 +27,34 @@ class DB {
   createEmployee(employee) {
     return this.connection.query("INSERT INTO employee SET ?", employee);
   }
+  // Remove an employee with the given id
+  removeEmployee(employeeId) {
+    return this.connection.query(
+      "DELETE FROM employee WHERE id = ?",
+      employeeId
+    );
+  }
+   // Create a new role
+   createRole(role) {
+    return this.connection.query("INSERT INTO role SET ?", role);
+  }
+  // Remove a role from the db
+  removeRole(roleId) {
+    return this.connection.query("DELETE FROM role WHERE id = ?", roleId);
+  }
+  // Create a new department
+  createDepartment(department) {
+    return this.connection.query("INSERT INTO department SET ?", department);
+  }
+
+  // Remove a department
+  removeDepartment(departmentId) {
+    return this.connection.query(
+      "DELETE FROM department WHERE id = ?",
+      departmentId
+    );
+  }
+
 }
 
 module.exports = new DB(connection);

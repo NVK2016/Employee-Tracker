@@ -178,3 +178,93 @@ async function addEmployee() {
 
   initialQuestions();
 }
+
+async function removeEmployee() {
+  const employees = await db.findAllEmployees();
+
+  const employeeChoices = employees.map(({ id, first_name, last_name }) => ({
+    name: `${first_name} ${last_name}`,
+    value: id
+  }));
+
+  const { employeeId } = await prompt([
+    {
+      type: "list",
+      name: "employeeId",
+      message: "Which employee do you want to remove?",
+      choices: employeeChoices
+    }
+  ]);
+
+  await db.removeEmployee(employeeId);
+
+  console.log("Removed employee from the database");
+
+  initialQuestions();
+}
+
+async function viewRoles() {
+  const roles = await db.findAllRoles();
+
+  console.log("\n");
+  console.table(roles);
+
+  initialQuestions();
+}
+
+async function addRole() {
+  const departments = await db.findAllDepartments();
+
+  const departmentChoices = departments.map(({ id, name }) => ({
+    name: name,
+    value: id
+  }));
+
+  const role = await prompt([
+    {
+      name: "title",
+      message: "What is the name of the role?"
+    },
+    {
+      name: "salary",
+      message: "What is the salary of the role?"
+    },
+    {
+      type: "list",
+      name: "department_id",
+      message: "Which department does the role belong to?",
+      choices: departmentChoices
+    }
+  ]);
+
+  await db.createRole(role);
+
+  console.log(`Added ${role.title} to the database`);
+
+  initialQuestions();
+}
+
+async function removeRole() {
+  const roles = await db.findAllRoles();
+
+  const roleChoices = roles.map(({ id, title }) => ({
+    name: title,
+    value: id
+  }));
+
+  const { roleId } = await prompt([
+    {
+      type: "list",
+      name: "roleId",
+      message:
+        "Which role do you want to remove? (Warning: This will also remove employees)",
+      choices: roleChoices
+    }
+  ]);
+
+  await db.removeRole(roleId);
+
+  console.log("Removed role from the database");
+
+  initialQuestions();
+}
